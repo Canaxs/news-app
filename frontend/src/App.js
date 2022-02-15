@@ -1,11 +1,10 @@
-import logo from './logo.svg';
 import './App.css';
-import Input from './fixedComponents/Input';
+import AdminLogin from './Pages/AdminLogin';
 
 function App() {
   return (
     <div className="App">
-      <Input types ={'password'}/>
+      <AdminLogin/>
     </div>
   );
 }
