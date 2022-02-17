@@ -25,15 +25,15 @@ public class Admin implements UserDetails{
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
+	private long id;
 	
 	@NotNull
 	@Size(min=4,max=255)
-	private String Username;
+	private String username;
 	
 	@NotNull
 	@Size(min = 4, max=255)
-	private String Password;
+	private String password;
 	
 	private String image;
 
