@@ -2,6 +2,7 @@ package com.news.info.admin;
 
 import java.util.UUID;
 
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
 import com.news.info.admin.token.AdminToken;
@@ -47,5 +48,10 @@ public class AdminService {
 	}
 	public String generateRandomToken() {
 		return UUID.randomUUID().toString().replaceAll("-", "");
+	}
+
+	public UserDetails getUserDetails(String token) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }
