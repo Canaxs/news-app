@@ -9,6 +9,9 @@ import com.news.info.admin.token.AdminToken;
 import com.news.info.admin.token.AdminTokenRepository;
 import com.news.info.ex.AuthException;
 
+import io.jsonwebtoken.Jwts;
+import io.jsonwebtoken.SignatureAlgorithm;
+
 @Service
 public class AdminService {
 
@@ -32,8 +35,8 @@ public class AdminService {
 			throw new AuthException();
 		}
 		AdminVM adminVM = new AdminVM(inDB);
-		String token = generateRandomToken();
-		
+		String token = Jwts.builder().setSubject(""+inDB.getId()).signWith(SignatureAlgorithm.HS512, "my-app").compact();
+
 		AdminToken adminToken = new AdminToken();
 		adminToken.setAdmin(inDB);
 		adminToken.setToken(token);
@@ -41,7 +44,6 @@ public class AdminService {
 		AdminAuthRes adminAuthRes = new AdminAuthRes();
 		adminAuthRes.setAdmin(adminVM);
 		adminAuthRes.setToken(token);
-		
 		
 		return adminAuthRes;
 		

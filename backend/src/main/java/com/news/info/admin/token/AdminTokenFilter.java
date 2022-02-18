@@ -18,6 +18,7 @@ import com.news.info.admin.AdminService;
 
 public class AdminTokenFilter extends OncePerRequestFilter {
 
+	
 	@Autowired
 	AdminService adminService;
 	
@@ -28,9 +29,8 @@ public class AdminTokenFilter extends OncePerRequestFilter {
 		String authorization = request.getHeader("Authorization");
 		if(authorization != null) {
 			String token = authorization.substring(7);
-			
 			UserDetails user = adminService.getUserDetails(token);
-			if(user != null) {				
+			if(user != null) {			
 				UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(user, null, user.getAuthorities());
 				authentication.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
 				SecurityContextHolder.getContext().setAuthentication(authentication);
