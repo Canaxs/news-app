@@ -1,12 +1,15 @@
+import React from 'react';
 import './App.css';
 import { HashRouter as Router, Route, Redirect, Switch } from 'react-router-dom';
 import AdminLogin from './Pages/AdminLogin';
 import { useSelector } from 'react-redux';
 
-function App() {
+const App = () =>  {
+
   const { isLoggedIn } = useSelector(store => ({
     isLoggedIn: store.isLoggedIn
   }));
+  
   return (
     <div className="App">
       <Router>
