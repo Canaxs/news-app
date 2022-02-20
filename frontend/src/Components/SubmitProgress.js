@@ -1,9 +1,9 @@
 import React from 'react'
 
  const SubmitProgress = (props) => {
-     const {pendingApiCall,text} = props;
+     const {onClick,pendingApiCall,text} = props;
   return (
-        <button className='btn btn-primary'>
+        <button className='btn btn-primary'onClick={onClick}>
         {pendingApiCall && <span className="spinner-border spinner-border-sm"></span>}{text}
     </button>
   )

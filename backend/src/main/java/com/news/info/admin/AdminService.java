@@ -44,7 +44,6 @@ public class AdminService {
 		AdminAuthRes adminAuthRes = new AdminAuthRes();
 		adminAuthRes.setAdmin(adminVM);
 		adminAuthRes.setToken(token);
-		
 		return adminAuthRes;
 		
 	}
