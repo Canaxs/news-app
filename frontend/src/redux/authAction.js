@@ -19,7 +19,8 @@ export const loginSuccess = authState => {
       const response = await login(credentials);
       const authState = {
         ...response.data.admin,
-        password: credentials.password
+        password: credentials.password,
+        token: response.data.token
       };
       dispatch(loginSuccess(authState));
       return response;
