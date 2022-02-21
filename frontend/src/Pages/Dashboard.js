@@ -4,9 +4,10 @@ import { logoutSuccess } from '../redux/authAction';
 
 const Dashboard = () => {
 
-    const { isLoggedIn,username,password } = useSelector(store => ({
+    const { isLoggedIn,username,password,image } = useSelector(store => ({
         isLoggedIn: store.isLoggedIn,
         username: store.username,
+        image : store.image,
         password: store.password
       }));
 
@@ -21,7 +22,7 @@ const Dashboard = () => {
     <div>
         <ul className="navbar-nav ml-auto">
         <li>
-           <h1>{password}</h1>
+           <h1>{image}</h1>
         </li>
         <li className="nav-link" onClick={onLogoutSuccess} style={{ cursor: 'pointer' }}>
           {('lOGOUT')}

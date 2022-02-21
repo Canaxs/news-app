@@ -18,7 +18,7 @@ export const loginSuccess = authState => {
     return async function(dispatch) {
       const response = await login(credentials);
       const authState = {
-        ...response.data,
+        ...response.data.admin,
         password: credentials.password
       };
       dispatch(loginSuccess(authState));
