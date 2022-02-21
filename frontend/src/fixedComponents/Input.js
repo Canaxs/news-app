@@ -1,16 +1,15 @@
-import React, { Component } from 'react'
+import React from 'react'
 
-export default class extends Component {
-    render() {
-        const {onChange,types,placeholder} = this.props;
+const Inpust = (props) => {
+        const {onChange,types,placeholder} = props;
         return (
             <div>
                 <form>
-                <div class="input-group mb-3">
+                <div className="input-group mb-3">
                     <input type={types} className='form-control' aria-label="Text input with checkbox" placeholder={placeholder} onChange={onChange}/>
                 </div>
                 </form>
             </div>
         )
     }
-}
+export default Inpust;
