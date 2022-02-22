@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import { HashRouter as Router, Route, Redirect, Switch,MemoryRouter } from 'react-router-dom';
 import AdminLogin from './Pages/AdminLogin';
-import Dashboard from './Pages/Dashboard';
+import Dashboard from './Pages/dashboard/Dashboardui';
 import { useSelector } from 'react-redux';
 
 const App = () =>  {
