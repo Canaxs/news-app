@@ -11,9 +11,6 @@ import Typography from '@mui/material/Typography';
 import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
 import Badge from '@mui/material/Badge';
-import Container from '@mui/material/Container';
-import Grid from '@mui/material/Grid';
-import Paper from '@mui/material/Paper';
 import Link from '@mui/material/Link';
 import MenuIcon from '@mui/icons-material/Menu';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
@@ -21,7 +18,7 @@ import LogoutIcon from '@mui/icons-material/Logout';
 import { mainListItems, secondaryListItems } from '../Pages/ListItems';
 import { useDispatch, useSelector } from 'react-redux';
 import { logoutSuccess } from '../redux/authAction';
-import { boxSizing } from '@mui/system';
+import { boxSizing, typography } from '@mui/system';
 
 function Copyright(props) {
   return (
@@ -89,9 +86,19 @@ function DashboardContent(props) {
   const toggleDrawer = () => {
     setOpen(!open);
   };
+
+  const { username,image } = useSelector(store => ({
+    username: store.username,
+    image : store.image
+  }));
+
   const dispatch = useDispatch();
-  const onLogoutSuccess = () => {
-    dispatch(logoutSuccess());
+  const onLogoutSuccess =() => {
+    try{
+      dispatch(logoutSuccess());
+    }
+    catch(error) {
+    }
   };
         return (
             <ThemeProvider theme={mdTheme}>
@@ -123,6 +130,15 @@ function DashboardContent(props) {
                     sx={{ flexGrow: 1 }}
                     >
                     Dashboard
+                    </Typography>
+                    <Typography
+                    component="h1"
+                    variant="h6"
+                    color="inherit"
+                    noWrap
+                    sx={{ flexGrow: 0.02 }}
+                    >
+                      {username}
                     </Typography>
                     <IconButton color="inherit">
                     <Badge badgeContent={0} color="secondary">
@@ -164,41 +180,7 @@ function DashboardContent(props) {
                 >
                 <Toolbar />
                 
-          <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
-            <Grid container spacing={3}>
-              {/* Chart */}
-              <Grid item xs={12} md={8} lg={9}>
-                <Paper
-                  sx={{
-                    p: 2,
-                    display: 'flex',
-                    flexDirection: 'column',
-                    height: 240,
-                  }}
-                >
-                </Paper>
-              </Grid>
-              {/* Recent Deposits */}
-              <Grid item xs={12} md={4} lg={3}>
-                <Paper
-                  sx={{
-                    p: 2,
-                    display: 'flex',
-                    flexDirection: 'column',
-                    height: 240,
-                  }}
-                >
-                  {props.news}
-                </Paper>
-              </Grid>
-              {/* Recent Orders */}
-              <Grid item xs={12}>
-                <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column' }}>
-                </Paper>
-              </Grid>
-            </Grid>
-            <Copyright sx={{ pt: 4 }} />
-          </Container>
+                {props.news}
                 </Box>
             </Box>
             </ThemeProvider>
