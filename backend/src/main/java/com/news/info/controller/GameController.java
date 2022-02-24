@@ -9,28 +9,28 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.news.info.techno.Techno;
-import com.news.info.techno.TechnoService;
+import com.news.info.game.Game;
+import com.news.info.game.GameService;
 
 
 @RestController
-@RequestMapping("/api/1.0/techno")
-public class TechnoController {
+@RequestMapping("/api/1.0/game")
+public class GameController {
+
 
 	@Autowired
-	TechnoService technoService;
+	GameService gameService;
 	
 	@PostMapping("/created")
-	Techno createdUser(@RequestBody Techno techno) {
-		return technoService.save(techno);
+	Game createdUser(@RequestBody Game game) {
+		return gameService.save(game);
 	}
 	@PostMapping("/deleted")
-	Techno deletedUser(@RequestBody Techno techno) {
-		return technoService.delete(techno);
+	Game deletedUser(@RequestBody Game game) {
+		return gameService.delete(game);
 	}
-	
 	@GetMapping("get")
-	List<Techno> getTechno(){
-		return technoService.getTechno();
+	List<Game> getTechno(){
+		return gameService.getGame();
 	}
 }

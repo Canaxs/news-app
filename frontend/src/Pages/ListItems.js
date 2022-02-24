@@ -12,6 +12,7 @@ import AssignmentIcon from '@mui/icons-material/Assignment';
 import ListIcon from '@mui/icons-material/List';
 import Link from '@mui/material/Link';
 import NewspaperIcon from '@mui/icons-material/Newspaper';
+import DeleteSweepIcon from '@mui/icons-material/DeleteSweep';
 
 
 export const mainListItems = (
@@ -24,20 +25,22 @@ export const mainListItems = (
       <ListItemText primary="Dashboard" />
     </ListItemButton>
     </Link>
-    <Link href="/#/dashboard/news" underline="none" color="red">
+    <Link href="/#/dashboard/news-create" underline="none" color="red">
     <ListItemButton>
       <ListItemIcon>
         <NewspaperIcon />
       </ListItemIcon>
-      <ListItemText primary="News" />
+      <ListItemText primary="News Create" />
     </ListItemButton>
     </Link>
+    <Link href="/#/dashboard/news-delete" underline="none" color="red">
     <ListItemButton>
       <ListItemIcon>
-        <ListIcon />
+        <DeleteSweepIcon />
       </ListItemIcon>
-      <ListItemText primary="News Menu" />
+      <ListItemText primary="News Delete" />
     </ListItemButton>
+    </Link>
     <ListItemButton>
       <ListItemIcon>
         <BarChartIcon />

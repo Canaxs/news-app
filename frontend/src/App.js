@@ -5,6 +5,7 @@ import AdminLogin from './Pages/AdminLogin';
 import Dashboard from './Pages/Dashboardui';
 import Newsui from './Pages/Newsui';
 import { useSelector } from 'react-redux';
+import NewsDelete from './Pages/NewsDelete';
 
 const App = () =>  {
 
@@ -18,7 +19,8 @@ const App = () =>  {
         <Switch>
         {!isLoggedIn && <Route exact path="/admin-login" component={AdminLogin} />}
         {isLoggedIn && <Route exact path="/dashboard" component={Dashboard} />}
-        {isLoggedIn && <Route exact path="/dashboard/news" component={Newsui} />}
+        {isLoggedIn && <Route exact path="/dashboard/news-create" component={Newsui} />}
+        {isLoggedIn && <Route exact path="/dashboard/news-delete" component={NewsDelete} />}
         <Redirect exact from={'/login'} from={'/admin'} to="/admin-login" />
         <Redirect to="/"/>
         

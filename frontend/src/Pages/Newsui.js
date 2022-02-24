@@ -12,6 +12,9 @@ const Newsui = () => {
   const [title,setTitle] = useState();
   const [topic,setTopic] = useState();
   const [cate,setCate] = useState();
+  const [done,setDone] = useState();
+  const [error,setError] = useState();
+
   const pendingApiCall = false;
 
   const onClickCreated = async event => {
@@ -23,9 +26,10 @@ const Newsui = () => {
     }
     try {
       await createLogin(cate,body);
-      console.log("Gönderildi");
+      setDone("News Created");
     }
     catch(error) {
+      setError("Failed to create news");
     }
 
   }
@@ -68,7 +72,7 @@ const Newsui = () => {
                </thead>
                <tbody>
                   <tr>
-                  <td><input type='radio' name="category" id='techno' value='techno'onChange={event => setCate(event.target.value)}/><label htmlFor="techno">Technology</label></td>
+                  <td><input type='radio' name="category" id='techno' value='techno' onChange={event => setCate(event.target.value)}/><label htmlFor="techno">Technology</label></td>
                   </tr>
                </tbody>
                <tfoot>
@@ -82,6 +86,7 @@ const Newsui = () => {
         {/* Recent Orders */}
         <Grid item xs={12}>
           <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column' }}>
+            { done ? <div class="alert alert-success" role="alert">{done}</div> : <div class="alert alert-danger" role="alert">{error}</div>}
           </Paper>
         </Grid>
       </Grid>
