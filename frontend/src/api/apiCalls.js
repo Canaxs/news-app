@@ -4,6 +4,6 @@ export const login = creds => {
     return axios.post('/api/1.0/admin/auth',creds);
   };
 
-export const createLogin = created => {
-  return axios.post('/api/1.0/news/create',created);
+export const createLogin = (news,body) => {
+  return axios.post('/api/1.0/'+news+'/created',body);
 }

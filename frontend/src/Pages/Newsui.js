@@ -1,12 +1,34 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Dashboard from './Dashboardui';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
 import Inpust from '../fixedComponents/Input';
 import SubmitProgress from '../Components/SubmitProgress';
+import {createLogin } from '../api/apiCalls'
 
 const Newsui = () => {
+
+  const [title,setTitle] = useState();
+  const [topic,setTopic] = useState();
+  const [cate,setCate] = useState();
+  const pendingApiCall = false;
+
+  const onClickCreated = async event => {
+    /* const pendingApiCall = ApiProgress('post', '/api/1.0/'+cate+'/auth'); */
+    event.preventDefault();
+    const body = {
+      title,
+      topic
+    }
+    try {
+      await createLogin(cate,body);
+      console.log("Gönderildi");
+    }
+    catch(error) {
+    }
+
+  }
 
     let news = (
       <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
@@ -22,10 +44,10 @@ const Newsui = () => {
             }}
           >
             <h3>News Create</h3>
-            Title <Inpust types={'text'}/> 
-            Topic <textarea class="form-control"></textarea>
+            Title <Inpust types={'text'} onChange={event => setTitle(event.target.value)}/> 
+            Topic <textarea className='form-control' onChange={event => setTopic(event.target.value)}></textarea>
 
-            <SubmitProgress text={'Send'} />
+            <SubmitProgress text={'Send'} onClick={onClickCreated} pendingApiCall={pendingApiCall}/>
           </Paper>
         </Grid>
         {/* Recent Deposits */}
@@ -46,12 +68,12 @@ const Newsui = () => {
                </thead>
                <tbody>
                   <tr>
-                  <td><input type='radio' name="category" id='techno' /><label htmlFor="techno">Technology</label></td>
+                  <td><input type='radio' name="category" id='techno' value='techno'onChange={event => setCate(event.target.value)}/><label htmlFor="techno">Technology</label></td>
                   </tr>
                </tbody>
                <tfoot>
                     <tr>
-                        <td><input type='radio' name="category" id='game' /><label htmlFor="game">Game</label></td>
+                        <td><input type='radio' name="category" id='game' value='game' onChange={event => setCate(event.target.value)}/><label htmlFor="game">Game</label></td>
                     </tr>
             </tfoot>
             </table>

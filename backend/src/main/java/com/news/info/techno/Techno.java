@@ -24,6 +24,5 @@ public class Techno {
 	@NotNull
 	@Size(min=5,max=450)
 	private String topic;
-	
 
 }
