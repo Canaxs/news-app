@@ -6,18 +6,19 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.news.info.admin.AdminAuthRes;
-import com.news.info.admin.AdminService;
-import com.news.info.admin.Credentials;
+import com.news.info.techno.Techno;
+import com.news.info.techno.TechnoService;
+
 
 @RestController
-@RequestMapping("/api/1.0/admin")
-public class AdminController {
+@RequestMapping("/api/1.0/techno")
+public class TechnoController {
+
 	@Autowired
-	AdminService adminService;
+	TechnoService technoService;
 	
-	@PostMapping("/auth")
-	AdminAuthRes handleAuthentication(@RequestBody Credentials credentials) {
-		return adminService.authenticate(credentials);
+	@PostMapping("/created")
+	Techno createdUser(@RequestBody Techno techno) {
+		return technoService.save(techno);
 	}
 }
