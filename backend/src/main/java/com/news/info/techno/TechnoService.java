@@ -19,9 +19,14 @@ public class TechnoService {
 	public Techno save(Techno techno) {
 		return technoRepository.save(techno);
 	}
-	
-	public Techno delete(Techno techno) {
+	public Techno get(Long id) {
+		return technoRepository.getById(id);
+	}
+	public Techno delete(Long id) {
+		Techno techno = null;
 		try {
+			techno = technoRepository.findByid(id);
+			System.out.println(techno);
 			technoRepository.delete(techno);
 		}
 		catch(Error error) {

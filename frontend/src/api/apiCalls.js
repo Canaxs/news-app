@@ -10,3 +10,6 @@ export const createLogin = (news,body) => {
 export const getBody = (cate) => {
   return axios.get(`/api/1.0/${cate}/get`);
 };
+export const deleteBody = (body,cate) => {
+  return axios.delete("/api/1.0/"+cate+"/deleted/"+body.id);
+}

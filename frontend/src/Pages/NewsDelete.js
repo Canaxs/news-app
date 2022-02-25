@@ -5,8 +5,9 @@ import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
 import Inpust from '../fixedComponents/Input';
 import SubmitProgress from '../Components/SubmitProgress';
-import { getBody } from '../api/apiCalls'
+import { getBody , deleteBody} from '../api/apiCalls'
 import { MenuItem,InputLabel,Select,FormControl,Card } from '@mui/material';
+import { isDOMComponentElement } from 'react-dom/cjs/react-dom-test-utils.production.min';
 
 
 const NewsDelete = () => {
@@ -16,11 +17,25 @@ const NewsDelete = () => {
 
     useEffect(() => {
         if(cate !== undefined){
-            getBody(cate).then(response => {
-               setDatum(response.data);
-              });
+            filterDatum();
         }
     },[cate]);
+
+    const filterDatum = () => {
+        getBody(cate).then(response => {
+            setDatum(response.data);
+           });
+    }
+
+    const onClickDelete = async (body) => {
+        try {
+            await deleteBody(body,cate);
+            filterDatum();
+
+        }
+        catch(error) {
+        }
+    }
 
     let news = (
       <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
@@ -43,7 +58,7 @@ const NewsDelete = () => {
                 <div className="card-body">
                   <h5 className="card-title">{e.title}</h5>
                   <h6 className="card-subtitle mb-2 text-muted">{e.topic}</h6>
-                  <button type="button" className="btn btn-danger">Sil</button>
+                  <button type="button" className="btn btn-danger" onClick={() => onClickDelete(e)}>Sil</button>
                 </div>
               </div>
               </div>

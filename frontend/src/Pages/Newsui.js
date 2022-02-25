@@ -86,7 +86,7 @@ const Newsui = () => {
         {/* Recent Orders */}
         <Grid item xs={12}>
           <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column' }}>
-            { done ? <div class="alert alert-success" role="alert">{done}</div> : <div class="alert alert-danger" role="alert">{error}</div>}
+            { done ? <div className="alert alert-success" role="alert">{done}</div> : <div className="alert alert-danger" role="alert">{error}</div>}
           </Paper>
         </Grid>
       </Grid>
