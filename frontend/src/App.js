@@ -4,6 +4,7 @@ import { HashRouter as Router, Route, Redirect, Switch,MemoryRouter } from 'reac
 import AdminLogin from './Pages/AdminLogin';
 import Dashboard from './Pages/Dashboardui';
 import Newsui from './Pages/Newsui';
+import Users from './Pages/Users';
 import { useSelector } from 'react-redux';
 import NewsDelete from './Pages/NewsDelete';
 
@@ -21,6 +22,7 @@ const App = () =>  {
         {isLoggedIn && <Route exact path="/dashboard" component={Dashboard} />}
         {isLoggedIn && <Route exact path="/dashboard/news-create" component={Newsui} />}
         {isLoggedIn && <Route exact path="/dashboard/news-delete" component={NewsDelete} />}
+        {isLoggedIn && <Route exact path="/dashboard/users" component={Users} />}
         <Redirect exact from={'/login'} from={'/admin'} to="/admin-login" />
         <Redirect to="/"/>
         
