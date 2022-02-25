@@ -1,5 +1,6 @@
 package com.news.info.admin;
 
+import java.util.List;
 import java.util.UUID;
 
 import org.springframework.security.core.userdetails.UserDetails;
@@ -25,7 +26,9 @@ public class AdminService {
 		this.adminJpaRepository = adminJpaRepository;
 		this.adminTokenRepository = adminTokenRepository;
 	}
-
+	public List<Admin> getAdmins(){
+		return adminJpaRepository.findAll();
+	}
 	public AdminAuthRes authenticate(Credentials credentials) {
 		Admin inDB = adminJpaRepository.findByUsername(credentials.getUsername());
 		if(inDB == null) {

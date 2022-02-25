@@ -13,3 +13,6 @@ export const getBody = (cate) => {
 export const deleteBody = (body,cate) => {
   return axios.delete("/api/1.0/"+cate+"/deleted/"+body.id);
 }
+export const getAdmins = () => {
+  return axios.get("/api/1.0/admin/getAdmin");
+}
