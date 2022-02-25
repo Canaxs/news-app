@@ -4,8 +4,10 @@ import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
 import Inpust from '../fixedComponents/Input';
+import Spinner from '../fixedComponents/Spinner';
 import SubmitProgress from '../Components/SubmitProgress';
 import {createLogin } from '../api/apiCalls'
+import { ApiProgress } from '../api/apiProgress';
 
 const Newsui = () => {
 
@@ -15,10 +17,9 @@ const Newsui = () => {
   const [done,setDone] = useState();
   const [error,setError] = useState();
 
-  const pendingApiCall = false;
+  const pendingApiCall = ApiProgress('post', '/api/1.0/'+cate+'/created');
 
   const onClickCreated = async event => {
-    /* const pendingApiCall = ApiProgress('post', '/api/1.0/'+cate+'/auth'); */
     event.preventDefault();
     const body = {
       title,
