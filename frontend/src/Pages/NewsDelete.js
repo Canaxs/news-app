@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react'
 import Dashboard from './Dashboardui';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
+import Spinner from '../fixedComponents/Spinner';
+import { ApiProgress } from '../api/apiProgress';
 import Paper from '@mui/material/Paper';
 import Inpust from '../fixedComponents/Input';
 import SubmitProgress from '../Components/SubmitProgress';
@@ -14,6 +16,7 @@ const NewsDelete = () => {
 
     const [cate,setCate] = useState();
     const [datum,setDatum] = useState();
+    const pendingApiCall = ApiProgress('get', '/api/1.0/'+cate+'/get');
 
     useEffect(() => {
         if(cate !== undefined){
@@ -36,7 +39,6 @@ const NewsDelete = () => {
         catch(error) {
         }
     }
-
     let news = (
       <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
       <Grid container spacing={3}>
@@ -51,8 +53,9 @@ const NewsDelete = () => {
             }}
           >
             <h3>News Delete</h3>
+            {pendingApiCall && <Spinner />}
             <div className='row'>
-            {   datum && datum.map(e=>(
+            {!pendingApiCall && datum && datum.map(e=>(
                 <div className='col-3 pt-2' key={e.title}>
                 <div className="card">
                 <div className="card-body">
@@ -102,7 +105,6 @@ const NewsDelete = () => {
       </Grid>
     </Container>
     );
-
   return (
     <div>
         <Dashboard  news={news}/>
