@@ -22,9 +22,9 @@ const HomePage = () => {
         <Navbar />
         <Slider />
         <br />
-        <MenuCard body1={body1} color={'bg-info'} buttoncolor={'info'}/>
+        <MenuCard body1={body1} color={'bg-info'} buttoncolor={'info'} aos={'fade-right'}/>
         <br />
-        <MenuCard body1={body2} color={'bg-dark'} buttoncolor={'dark'}/>
+        <MenuCard body1={body2} color={'bg-dark'} buttoncolor={'dark'} aos={'fade-left'}/>
 
     </div>
   )
