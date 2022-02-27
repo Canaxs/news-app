@@ -1,15 +1,61 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import logo1 from '../images/1.jpg';
+import logo2 from '../images/2.jpg';
+import logo3 from '../images/3.jpg';
 
-export const Slider = (props) => {
+ const Slider = () => {
   return(
-  <div>
-      
-  </div>);
+<div>
+    <div id="carouselExampleIndicators" className="carousel slide" data-ride="carousel" style={{height: "500px"}}>
+        <ol className="carousel-indicators">
+          <li data-target="#carouselExampleIndicators" data-slide-to="0" className="active"></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+        </ol>
+        <div className="carousel-inner">
+                <div className="carousel-item active">
+                  <img className="d-block w-100" src={logo1} alt="First slide" height={500} style={{objectFit:"cover"}}/>
+                  <div className="carousel-caption d-none  d-block">
+                    <h5>Bir</h5>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                  </div>
+                </div>
+                <div className="carousel-item">
+                  <img className="d-block w-100" src={logo2} alt="Second slide" height={500} style={{objectFit:"cover"}}/>
+                  <div className="carousel-caption d-none  d-block">
+                    <h5>İki</h5>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                  </div>
+                </div>
+                <div className="carousel-item">
+                  <img className="d-block w-100" src={logo3} alt="Third slide" height={500} style={{objectFit:"cover"}}/>
+                  <div className="carousel-caption d-none d-block">
+                    <h5>Üç</h5>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                  </div>
+                </div>
+                <div className="carousel-item">
+                  <img className="d-block w-100" src={logo3} alt="Third slide" height={500} style={{objectFit:"cover"}}/>
+                  <div className="carousel-caption d-none d-block">
+                    <h5>Üç</h5>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                  </div>
+                </div>
+        </div>
+          <a className="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+            <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span className="sr-only">Previous</span>
+          </a>
+          <a className="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+            <span className="carousel-control-next-icon" aria-hidden="true"></span>
+            <span className="sr-only">Next</span>
+          </a>
+        </div>
+        </div>
+
+  );
 };
 
-const mapStateToProps = (state) => ({});
-
-const mapDispatchToProps = {};
-
-export default connect(mapStateToProps, mapDispatchToProps)(Slider);
+export default Slider;
