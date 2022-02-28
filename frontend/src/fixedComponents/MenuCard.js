@@ -17,7 +17,7 @@ const MenuCard = (props) => {
                 <h3 className="card-title text-center">{body1.title}</h3>
                 <p className="card-text ">{body1.text1}</p>
                 <p className="card-text">{body1.text2}</p>
-                <button type="button" class={`btn btn-${buttoncolor} btn-lg`}>Go To Page</button>
+                <button type="button" className={`btn btn-${buttoncolor} btn-lg`}>Go To Page</button>
             </div>
         </div>
         </div>

@@ -16,3 +16,6 @@ export const deleteBody = (body,cate) => {
 export const getAdmins = () => {
   return axios.get("/api/1.0/admin/getAdmin");
 }
+export const getSliders = () => {
+  return axios.get("/api/1.0/slider");
+}

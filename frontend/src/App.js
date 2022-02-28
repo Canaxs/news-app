@@ -8,6 +8,8 @@ import Users from './Pages/Users';
 import HomePage from './Pages/HomePage';
 import { useSelector } from 'react-redux';
 import NewsDelete from './Pages/NewsDelete';
+import SliderPage from './Pages/SliderPage';
+
 
 const App = () =>  {
 
@@ -25,6 +27,7 @@ const App = () =>  {
         {isLoggedIn && <Route exact path="/dashboard/news-create" component={Newsui} />}
         {isLoggedIn && <Route exact path="/dashboard/news-delete" component={NewsDelete} />}
         {isLoggedIn && <Route exact path="/dashboard/users" component={Users} />}
+        {isLoggedIn && <Route exact path="/dashboard/slider" component={SliderPage} />}
         <Redirect exact from={'/login'} from={'/admin'} to="/admin-login" />
         <Redirect to="/"/>
         

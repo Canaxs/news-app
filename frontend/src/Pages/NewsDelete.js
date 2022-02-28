@@ -9,7 +9,6 @@ import Inpust from '../fixedComponents/Input';
 import SubmitProgress from '../Components/SubmitProgress';
 import { getBody , deleteBody} from '../api/apiCalls'
 import { MenuItem,InputLabel,Select,FormControl,Card } from '@mui/material';
-import { isDOMComponentElement } from 'react-dom/cjs/react-dom-test-utils.production.min';
 
 
 const NewsDelete = () => {

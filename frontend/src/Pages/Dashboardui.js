@@ -164,7 +164,6 @@ function DashboardContent(props) {
                 <List component="nav">
                 {mainListItems}
                 </List>
-                {secondaryListItems}
                 </Drawer>
                 <Box
                 component="main"
