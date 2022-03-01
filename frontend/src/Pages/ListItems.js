@@ -11,6 +11,7 @@ import AssignmentIcon from '@mui/icons-material/Assignment';
 import ListIcon from '@mui/icons-material/List';
 import Link from '@mui/material/Link';
 import NewspaperIcon from '@mui/icons-material/Newspaper';
+import AddPhotoAlternateIcon from '@mui/icons-material/AddPhotoAlternate';
 import PhotoOutlinedIcon from '@mui/icons-material/PhotoOutlined';
 import DeleteSweepIcon from '@mui/icons-material/DeleteSweep';
 
@@ -61,6 +62,14 @@ export const mainListItems = (
         <PhotoOutlinedIcon />
       </ListItemIcon>
       <ListItemText primary="Slider" />
+    </ListItemButton>
+    </Link>
+    <Link href="/#/dashboard/slider-create" underline="none" color="red">
+    <ListItemButton>
+      <ListItemIcon>
+        <AddPhotoAlternateIcon />
+      </ListItemIcon>
+      <ListItemText primary="Slider Create" />
     </ListItemButton>
     </Link>
   </React.Fragment>

@@ -19,3 +19,12 @@ export const getAdmins = () => {
 export const getSliders = () => {
   return axios.get("/api/1.0/slider");
 }
+export const deleteSlider = (id) => {
+  return axios.delete(`/api/1.0/slider/${id}`);
+}
+export const updateSlider = (id,body) => {
+  return axios.put(`/api/1.0/slider/${id}`,body);
+}
+export const createSlider = (body) => {
+  return axios.post(`/api/1.0/slider/create`,body);
+}
