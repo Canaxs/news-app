@@ -10,7 +10,7 @@ Rest-Controller
 
 (/api/1.0/game)
 --> /created (Post)
---> /deleted (Delete)
+--> /deleted/{id} (Delete)
 --> /get (Get)
 ///////
 
