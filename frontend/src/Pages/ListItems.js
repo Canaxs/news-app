@@ -42,20 +42,6 @@ export const mainListItems = (
       <ListItemText primary="News Delete" />
     </ListItemButton>
     </Link>
-    <ListItemButton>
-      <ListItemIcon>
-        <BarChartIcon />
-      </ListItemIcon>
-      <ListItemText primary="Reports" />
-    </ListItemButton>
-    <Link href="/#/dashboard/users" underline="none" color="red">
-    <ListItemButton>
-      <ListItemIcon>
-        <PeopleIcon />
-      </ListItemIcon>
-      <ListItemText primary="Users" />
-    </ListItemButton>
-    </Link>
     <Link href="/#/dashboard/slider" underline="none" color="red">
     <ListItemButton>
       <ListItemIcon>
@@ -70,6 +56,14 @@ export const mainListItems = (
         <AddPhotoAlternateIcon />
       </ListItemIcon>
       <ListItemText primary="Slider Create" />
+    </ListItemButton>
+    </Link>
+    <Link href="/#/dashboard/users" underline="none" color="red">
+    <ListItemButton>
+      <ListItemIcon>
+        <PeopleIcon />
+      </ListItemIcon>
+      <ListItemText primary="Users" />
     </ListItemButton>
     </Link>
   </React.Fragment>

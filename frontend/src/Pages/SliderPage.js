@@ -151,7 +151,7 @@ const SliderPage = () => {
                     p: 2,
                     display: 'flex',
                     flexDirection: 'column',
-                    height: 240,
+                    height: "100%",
                   }}
                 >
                 <div className="card">

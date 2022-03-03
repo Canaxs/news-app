@@ -23,8 +23,10 @@ public class GameService {
 		return gameRepository.save(game);
 	}
 	
-	public Game delete(Game game) {
+	public Game delete(long id) {
+		Game game = null;
 		try {
+			game = gameRepository.findByid(id);
 			gameRepository.delete(game);
 		}
 		catch(Error error) {

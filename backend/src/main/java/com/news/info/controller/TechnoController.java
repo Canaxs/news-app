@@ -28,7 +28,7 @@ public class TechnoController {
 	}
 	
 	@DeleteMapping("/deleted/{id}")
-	Techno deletedUser(@PathVariable Long id) {
+	Techno deletedUser(@PathVariable long id) {
 		return technoService.delete(id);
 	}
 	

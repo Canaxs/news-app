@@ -22,7 +22,7 @@ public class TechnoService {
 	public Techno get(Long id) {
 		return technoRepository.getById(id);
 	}
-	public Techno delete(Long id) {
+	public Techno delete(long id) {
 		Techno techno = null;
 		try {
 			techno = technoRepository.findByid(id);
