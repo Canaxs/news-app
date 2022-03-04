@@ -28,3 +28,6 @@ export const updateSlider = (id,body) => {
 export const createSlider = (body) => {
   return axios.post(`/api/1.0/slider/create`,body);
 }
+export const getPageTechno = (page = 0, size = 3) => {
+  return axios.get(`/api/1.0/techno/page?page=${page}&size=${size}`);
+}

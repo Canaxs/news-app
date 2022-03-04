@@ -3,6 +3,8 @@ package com.news.info.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -13,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.news.info.techno.Techno;
 import com.news.info.techno.TechnoService;
+import com.news.info.techno.TechnoVM;
 
 
 @RestController
@@ -35,5 +38,10 @@ public class TechnoController {
 	@GetMapping("get")
 	List<Techno> getTechno(){
 		return technoService.getTechno();
+	}
+	
+	@GetMapping("page")
+	Page<TechnoVM> getPageTechno(Pageable page) {
+		return technoService.getPageTechno(page).map(TechnoVM::new);
 	}
 }

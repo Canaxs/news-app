@@ -2,6 +2,8 @@ package com.news.info.techno;
 
 import java.util.List;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.news.info.ex.AuthException;
@@ -37,6 +39,10 @@ public class TechnoService {
 	
 	public List<Techno> getTechno(){
 		return technoRepository.findAll();
+	}
+
+	public Page<Techno> getPageTechno(Pageable page) {
+		return technoRepository.findAll(page);
 	}
 	
 }

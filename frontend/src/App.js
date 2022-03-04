@@ -10,6 +10,7 @@ import { useSelector } from 'react-redux';
 import NewsDelete from './Pages/NewsDelete';
 import SliderCreate from './Pages/SliderCreate';
 import SliderPage from './Pages/SliderPage';
+import Techno from './Pages/Techno';
 
 
 const App = () =>  {
@@ -23,6 +24,7 @@ const App = () =>  {
       <Router>
         <Switch>
         <Route exact path="/" component={HomePage} />
+        <Route export path="/techno/:id" component={Techno} />
         {!isLoggedIn && <Route exact path="/admin-login" component={AdminLogin} />}
         {isLoggedIn && <Route exact path="/dashboard" component={Dashboard} />}
         {isLoggedIn && <Route exact path="/dashboard/news-create" component={Newsui} />}

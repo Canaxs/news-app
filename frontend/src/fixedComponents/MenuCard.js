@@ -4,7 +4,7 @@ import Aos from "aos";
 import "aos/dist/aos.css";
 
 const MenuCard = (props) => { 
-    const {body1,color,buttoncolor,aos,image} = props;
+    const {body1,color,buttoncolor,aos,image,href} = props;
     useEffect(()=> {
         Aos.init({duration:1000});
     },[])
@@ -17,7 +17,7 @@ const MenuCard = (props) => {
                 <h3 className="card-title text-center">{body1.title}</h3>
                 <p className="card-text ">{body1.text1}</p>
                 <p className="card-text">{body1.text2}</p>
-                <button type="button" className={`btn btn-${buttoncolor} btn-lg`}>Go To Page</button>
+                <a href={href}><button type="button" className={`btn btn-${buttoncolor} btn-lg`}>Go To Page</button></a>
             </div>
         </div>
         </div>
