@@ -5,9 +5,11 @@ import NewsCard from "../fixedComponents/NewsCard";
 import { useParams } from 'react-router-dom';
 import { ApiProgress } from '../api/apiProgress';
 import Spinner from '../fixedComponents/Spinner';
+import Error from '../fixedComponents/Error';
 
 const Techno = (props) => {
     const [cont,setCont] = useState();
+    const [error,setError] = useState(false);
     const pendingApiCall = ApiProgress("get",`/api/1.0/techno/page?`);
     const {id} = useParams();
 
@@ -15,9 +17,14 @@ const Techno = (props) => {
         loadTechno(id);
       },[])
 
-    const loadTechno = page => {
-        getPageTechno(page).then(res => {
-            setCont(res.data)
+    const loadTechno = async page => {
+        await getPageTechno(page).then(res => {
+            if(res.data.content.length !== 0){
+                setCont(res.data)
+            }
+            else {
+                setError(true);
+            }
         })
     }
     const onClickNext = () => {
@@ -31,6 +38,14 @@ const Techno = (props) => {
         const {push} = props.history;
         push("/techno/"+previous);
         loadTechno(previous);
+    }
+
+    if(error) {
+        return (
+            <div>
+                <Error />
+            </div>
+        )
     }
 
     if(pendingApiCall) {

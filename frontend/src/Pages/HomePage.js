@@ -25,7 +25,7 @@ const HomePage = () => {
         <Navbar />
         <Slider />
         <br />
-        <MenuCard body1={body1} color={'bg-dark'} buttoncolor={'dark'} aos={'fade-right'} image={image1} href={'/#/techno/:id'}/>
+        <MenuCard body1={body1} color={'bg-dark'} buttoncolor={'dark'} aos={'fade-right'} image={image1} href={'/#/techno/0'}/>
         <br />
         <MenuCard body1={body2} color={'bg-dark'} buttoncolor={'dark'} aos={'fade-left'} image={image2}/>
         <br />

@@ -13,7 +13,7 @@ const Navbar = (props) => {
   return (
         <div className='navbar-container'>
             <div className='navbar'>
-                <h3 data-aos="flip-up">Creyton</h3>
+                <a href='/#/' style={{textDecoration: "none",color: "white"}}><h3 data-aos="flip-up">Creyton</h3></a>
             </div>
         </div>
     
