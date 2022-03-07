@@ -20,6 +20,9 @@ public class GameService {
 	public List<Game> getGame(){
 		return gameRepository.findAll();
 	}
+	public Game get(long id) {
+		return gameRepository.findByid(id);
+	}
 	
 	public Game save(Game game) {
 		return gameRepository.save(game);

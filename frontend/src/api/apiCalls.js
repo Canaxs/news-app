@@ -34,3 +34,6 @@ export const getPageTechno = (page = 0, size = 3) => {
 export const getPageGame = (page = 0, size = 3) => {
   return axios.get(`/api/1.0/game/page?page=${page}&size=${size}`);
 }
+export const getReadMore = (news,id) => {
+  return axios.get(`/api/1.0/${news}/${id}`);
+}

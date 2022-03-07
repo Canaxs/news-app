@@ -68,7 +68,7 @@ const Techno = (props) => {
                 <Navbar />
                 <h5 className='text-white mt-3'>Page {cont && cont.pageable.pageNumber+1}</h5>
                 {cont && cont.content.map(e => (
-                <NewsCard title={e.title} topic={e.topic} key={e.title}/>
+                <NewsCard title={e.title} topic={e.topic} key={e.title}  id={e.id} news={"techno"}/>
                 ))}
                 <div className='d-flex justify-content-center w-100'>
                 { cont && cont.first === false && (

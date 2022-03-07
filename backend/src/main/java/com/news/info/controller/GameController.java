@@ -34,6 +34,11 @@ public class GameController {
 	Game deletedUser(@PathVariable long id) {
 		return gameService.delete(id);
 	}
+	@GetMapping("/{id}")
+	Game getNews(@PathVariable long id) {
+		return gameService.get(id);
+	}
+	
 	@GetMapping("get")
 	List<Game> getTechno(){
 		return gameService.getGame();

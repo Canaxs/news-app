@@ -12,6 +12,7 @@ import SliderCreate from './Pages/SliderCreate';
 import SliderPage from './Pages/SliderPage';
 import Techno from './Pages/Techno';
 import Game from './Pages/Game';
+import ReadMore from './Pages/ReadMore';
 
 
 const App = () =>  {
@@ -27,6 +28,7 @@ const App = () =>  {
         <Route exact path="/" component={HomePage} />
         <Route export path="/techno/:id" component={Techno} />
         <Route export path="/game/:id" component={Game} />
+        <Route export path="/readmore/:news/:id" component={ReadMore} />
         {!isLoggedIn && <Route exact path="/admin-login" component={AdminLogin} />}
         {isLoggedIn && <Route exact path="/dashboard" component={Dashboard} />}
         {isLoggedIn && <Route exact path="/dashboard/news-create" component={Newsui} />}
