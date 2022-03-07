@@ -22,7 +22,7 @@ import { getSliders} from '../api/apiCalls'
     <div id="carouselExampleIndicators" className="carousel slide" data-ride="carousel" style={{height: "500px"}}>
         <ol className="carousel-indicators">
           {sliders && sliders.map((e,index) => (
-            <li data-target="#carouselExampleIndicators" className={index === 0 && "active"} data-slide-to={e.id} key={e.title}></li>
+            <li data-target="#carouselExampleIndicators" className={index === 0 ? "active" : ""} data-slide-to={e.id} key={e.title}></li>
           ))}
         </ol>
         <div className="carousel-inner">

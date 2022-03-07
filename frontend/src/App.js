@@ -11,6 +11,7 @@ import NewsDelete from './Pages/NewsDelete';
 import SliderCreate from './Pages/SliderCreate';
 import SliderPage from './Pages/SliderPage';
 import Techno from './Pages/Techno';
+import Game from './Pages/Game';
 
 
 const App = () =>  {
@@ -25,6 +26,7 @@ const App = () =>  {
         <Switch>
         <Route exact path="/" component={HomePage} />
         <Route export path="/techno/:id" component={Techno} />
+        <Route export path="/game/:id" component={Game} />
         {!isLoggedIn && <Route exact path="/admin-login" component={AdminLogin} />}
         {isLoggedIn && <Route exact path="/dashboard" component={Dashboard} />}
         {isLoggedIn && <Route exact path="/dashboard/news-create" component={Newsui} />}
@@ -32,7 +34,8 @@ const App = () =>  {
         {isLoggedIn && <Route exact path="/dashboard/users" component={Users} />}
         {isLoggedIn && <Route exact path="/dashboard/slider" component={SliderPage} />}
         {isLoggedIn && <Route exact path="/dashboard/slider-create" component={SliderCreate} />}
-        <Redirect exact from={'/login'} from={'/admin'} to="/admin-login" />
+        <Redirect exact from={'/login'} to="/admin-login" />
+        <Redirect exact from={'/admin'} to="/admin-login" />
         <Redirect to="/"/>
         
         </Switch>

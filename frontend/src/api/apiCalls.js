@@ -31,3 +31,6 @@ export const createSlider = (body) => {
 export const getPageTechno = (page = 0, size = 3) => {
   return axios.get(`/api/1.0/techno/page?page=${page}&size=${size}`);
 }
+export const getPageGame = (page = 0, size = 3) => {
+  return axios.get(`/api/1.0/game/page?page=${page}&size=${size}`);
+}

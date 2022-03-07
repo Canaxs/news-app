@@ -27,7 +27,7 @@ const HomePage = () => {
         <br />
         <MenuCard body1={body1} color={'bg-dark'} buttoncolor={'dark'} aos={'fade-right'} image={image1} href={'/#/techno/0'}/>
         <br />
-        <MenuCard body1={body2} color={'bg-dark'} buttoncolor={'dark'} aos={'fade-left'} image={image2}/>
+        <MenuCard body1={body2} color={'bg-dark'} buttoncolor={'dark'} aos={'fade-left'} image={image2} href={'/#/game/0'}/>
         <br />
         <Footer />
 

@@ -1,5 +1,5 @@
 import React, { useState,useEffect } from 'react'
-import {getPageTechno} from "../api/apiCalls"
+import {getPageGame} from "../api/apiCalls"
 import Navbar from '../fixedComponents/Navbar';
 import NewsCard from "../fixedComponents/NewsCard";
 import { useParams } from 'react-router-dom';
@@ -7,16 +7,16 @@ import { ApiProgress } from '../api/apiProgress';
 import Spinner from '../fixedComponents/Spinner';
 import Error from '../fixedComponents/Error';
 
-const Techno = (props) => {
+const Game = (props) => {
     const [cont,setCont] = useState();
     const [error,setError] = useState(false);
-    const pendingApiCall = ApiProgress("get",`/api/1.0/techno/page?`);
+    const pendingApiCall = ApiProgress("get",`/api/1.0/game/page?`);
     const {id} = useParams();
 
     useEffect(() => {
         if(isNaN(id)) {
            const {push} = props.history;
-           push("/techno/0");
+           push("/game/0");
            window.location.reload();
         }
         else {
@@ -24,7 +24,7 @@ const Techno = (props) => {
         }
       },[])
     const loadTechno = async page => {
-        await getPageTechno(page).then(res => {
+        await getPageGame(page).then(res => {
             if(res.data.content.length !== 0){
                 setCont(res.data)
             }
@@ -36,13 +36,13 @@ const Techno = (props) => {
     const onClickNext = () => {
         const next = cont.number + 1;
         const {push} = props.history;
-        push('/techno/'+next);
+        push('/game/'+next);
         loadTechno(next);
     }
     const onClickPrevious = () => {
         const previous = cont.number - 1;
         const {push} = props.history;
-        push("/techno/"+previous);
+        push("/game/"+previous);
         loadTechno(previous);
     }
 
@@ -87,4 +87,4 @@ const Techno = (props) => {
   )
 }
 
-export default Techno
+export default Game

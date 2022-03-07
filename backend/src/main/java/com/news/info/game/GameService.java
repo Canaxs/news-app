@@ -2,9 +2,11 @@ package com.news.info.game;
 
 import java.util.List;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
-
 import com.news.info.ex.AuthException;
+
 @Service
 public class GameService {
 	
@@ -33,6 +35,10 @@ public class GameService {
 			new AuthException();
 		}
 		return game;
+	}
+
+	public Page<Game> getPageTechno(Pageable page) {
+		return gameRepository.findAll(page);
 	}
 	
 	
