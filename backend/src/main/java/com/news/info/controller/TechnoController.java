@@ -34,7 +34,10 @@ public class TechnoController {
 	Techno deletedUser(@PathVariable long id) {
 		return technoService.delete(id);
 	}
-	
+	@GetMapping("/{id}")
+	Techno getNews(@PathVariable long id) {
+		return technoService.get(id);
+	}
 	@GetMapping("get")
 	List<Techno> getTechno(){
 		return technoService.getTechno();

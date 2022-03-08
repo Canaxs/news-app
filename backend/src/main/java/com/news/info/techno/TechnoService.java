@@ -22,7 +22,7 @@ public class TechnoService {
 		return technoRepository.save(techno);
 	}
 	public Techno get(Long id) {
-		return technoRepository.getById(id);
+		return technoRepository.findByid(id);
 	}
 	public Techno delete(long id) {
 		Techno techno = null;
