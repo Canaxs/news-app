@@ -15,6 +15,7 @@ const ReadMore = (props) => {
     const {news,id} = useParams();
 
     useEffect(async () => {
+      try {
       await getReadMore(news,id).then(response => {
             if(response.data !== null){
               setBody(response.data)
@@ -23,6 +24,10 @@ const ReadMore = (props) => {
               setError(true);
           }
       })
+    }
+    catch(error) {
+      setError(true);
+    }
     },[])
 
     if(error) {
