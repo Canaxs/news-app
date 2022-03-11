@@ -37,3 +37,11 @@ export const getPageGame = (page = 0, size = 3) => {
 export const getReadMore = (news,id) => {
   return axios.get(`/api/1.0/${news}/${id}`);
 }
+export const setAuthorizationHeader = ({ isLoggedIn, token }) => {
+  if (isLoggedIn) {
+    const authorizationHeaderValue = `Bearer ${token}`;
+    axios.defaults.headers['Authorization'] = authorizationHeaderValue;
+  } else {
+    delete axios.defaults.headers['Authorization'];
+  }
+};
