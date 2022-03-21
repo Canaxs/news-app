@@ -13,9 +13,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.news.info.game.Game;
-import com.news.info.game.GameService;
-import com.news.info.game.GameVM;
+import com.news.info.model.Game;
+import com.news.info.model.GameVM;
+import com.news.info.service.GameService;
 
 
 @RestController
@@ -27,11 +27,11 @@ public class GameController {
 	GameService gameService;
 	
 	@PostMapping("/created")
-	Game createdUser(@RequestBody Game game) {
+	Game createdNewsGame(@RequestBody Game game) {
 		return gameService.save(game);
 	}
 	@DeleteMapping("/deleted/{id}")
-	Game deletedUser(@PathVariable long id) {
+	Game deletedNewsGame(@PathVariable long id) {
 		return gameService.delete(id);
 	}
 	@GetMapping("/{id}")

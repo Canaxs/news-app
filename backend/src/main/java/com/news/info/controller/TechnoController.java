@@ -13,9 +13,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.news.info.techno.Techno;
-import com.news.info.techno.TechnoService;
-import com.news.info.techno.TechnoVM;
+import com.news.info.model.Techno;
+import com.news.info.model.TechnoVM;
+import com.news.info.service.TechnoService;
 
 
 @RestController

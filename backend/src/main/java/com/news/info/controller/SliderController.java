@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.news.info.slider.Slider;
-import com.news.info.slider.SliderService;
+import com.news.info.model.Slider;
+import com.news.info.service.SliderService;
 
 @RestController
 @RequestMapping("/api/1.0/slider")
