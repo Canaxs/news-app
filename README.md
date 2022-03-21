@@ -30,7 +30,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/othneildrew/Best-README-Template">
-    <img src="https://cdnlogo.com/logo/google-news_519.html" alt="Logo" width="80" height="80">
+    <img src="https://cdn.cdnlogo.com/logos/g/93/google-news.svg" alt="Logo" width="80" height="80">
   </a>
 
   <h3 align="center">News-App</h3>
