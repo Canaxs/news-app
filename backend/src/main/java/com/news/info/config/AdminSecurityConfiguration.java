@@ -47,7 +47,6 @@ public class AdminSecurityConfiguration extends WebSecurityConfigurerAdapter{
 			}
 		});
 		http.headers().frameOptions().disable();
-		http.httpBasic().disable();
 		http
 		.authorizeRequests()
 		.and()

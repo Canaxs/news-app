@@ -2,9 +2,11 @@ package com.news.info.service;
 
 import java.util.List;
 
-import org.hibernate.proxy.HibernateProxy;
+import javax.transaction.Transactional;
+
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
+import org.hibernate.proxy.HibernateProxy;
 
 import com.news.info.exception.AuthException;
 import com.news.info.model.Admin;
@@ -54,23 +56,24 @@ public class AdminServiceImpl implements AdminService{
 		adminToken.setAdmin(inDB);
 		adminToken.setToken(token);
 		adminTokenRepository.save(adminToken);
+		
 		AdminAuthRes adminAuthRes = new AdminAuthRes();
 		adminAuthRes.setAdmin(adminVM);
-		adminAuthRes.setToken("Bearer "+token);
+		adminAuthRes.setToken(token);
 		return adminAuthRes;
 	}
 
 	@Override
+	@Transactional
 	public UserDetails getUserDetails(String token) {
-		System.out.println("Token: "+ token);
 		JwtParser parser = Jwts.parser().setSigningKey("my-app");
 		try {			
 			parser.parse(token);
 			Claims claims = parser.parseClaimsJws(token).getBody();
-			long adminId = new Long(claims.getSubject());
-			Admin admin = adminJpaRepository.getOne(adminId);
-			Admin actualAdmin = (Admin)((HibernateProxy)admin).getHibernateLazyInitializer().getImplementation();
-			return actualAdmin;
+			long userId = new Long(claims.getSubject());
+			Admin admin = adminJpaRepository.getOne(userId);
+			Admin actualUser = (Admin)((HibernateProxy)admin).getHibernateLazyInitializer().getImplementation();
+			return actualUser;
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
